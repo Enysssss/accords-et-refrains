@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Répertoire · Accords &amp; Refrains</title>
+<meta name="description" content="Les grilles d'accords de 20 classiques des années 50, 60 et 70, transposables, pour accompagner un karaoké au piano.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Figtree:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="style.css">
+<style>
+.tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:22px 0 14px}
+.search{flex:1 1 220px;min-width:0;font:500 16px var(--f-ui);padding:11px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.count{font-size:13px;color:var(--muted)}
+.songs{display:flex;flex-direction:column;gap:10px}
+.song{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.song-h{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:14px 16px;cursor:pointer;border:0;background:transparent;width:100%;text-align:left;color:inherit}
+.song-n{font-family:var(--f-display);font-size:22px;color:var(--muted);width:2ch;text-align:right;font-variant-numeric:lining-nums tabular-nums}
+.song-t{min-width:0}
+.song-t b{display:block;font-family:var(--f-display);font-weight:700;font-size:21px;line-height:1.15}
+.song-t span{color:var(--muted);font-size:14px}
+.keychip{font-weight:800;font-size:13px;padding:4px 9px;border-radius:999px;background:var(--felt-soft);color:var(--felt);white-space:nowrap}
+.song-b{padding:0 16px 18px;border-top:1px solid var(--line);display:none}
+.song.open .song-b{display:block}
+.transp{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:14px 0 6px}
+.transp .k{font-weight:800}
+.transp .lbl{font-size:13px;color:var(--muted)}
+.used{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 4px}
+.sec{margin-top:16px}
+.sec h4{margin:0 0 8px;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:flex;gap:8px;align-items:baseline}
+.sec h4 i{font-style:normal;color:var(--felt);letter-spacing:0;text-transform:none}
+.bars{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-left:2px solid var(--ink)}
+.bar{border-right:2px solid var(--ink);border-bottom:1px solid var(--line);padding:8px 6px;display:flex;gap:4px;flex-wrap:wrap;align-items:center;min-height:46px}
+.bar .ch{font-size:14px;padding:2px 7px}
+@media (max-width:420px){.bar .ch{font-size:13px;padding:2px 5px}}
+.tip{margin:16px 0 0;padding:12px 14px;background:var(--surface-2);border-radius:12px;font-size:15px}
+.tip b{color:var(--felt)}
+.note{font-size:13px;color:var(--muted);margin:8px 0 0}
+.src{font-size:12px;color:var(--muted);margin-top:10px}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-in">
+  <a class="brand" href="/">Accords <em>&amp;</em> Refrains</a>
+  <div class="tabs">
+    <a href="/"><span class="n">1</span>Entraînement</a>
+    <a href="/harmonie.html"><span class="n">2</span>Harmonie</a>
+    <a href="/repertoire.html" aria-current="page"><span class="n">3</span>Répertoire</a>
+  </div>
+</div></nav>
+
+<main class="wrap">
+  <div class="eyebrow">Section 3 · 20 classiques</div>
+  <h1 class="page-title">Le répertoire du karaoké</h1>
+  <p class="lede">Les grilles des grands classiques des années 50 à 70. Touche un accord pour le voir sur le clavier et l'entendre. Les boutons − / + transposent toute la grille pour l'adapter à la voix du chanteur.</p>
+
+  <div class="tools">
+    <input class="search" id="q" type="search" placeholder="Chercher un titre ou un artiste" aria-label="Chercher une chanson">
+    <div class="seg" role="group" aria-label="Notation">
+      <button id="nEn" data-n="en">C D E</button><button id="nFr" data-n="fr">Do Ré Mi</button>
+    </div>
+  </div>
+  <p class="count" id="count"></p>
+  <div class="songs" id="songs"></div>
+  <p class="note" style="margin-top:22px">Les grilles sont simplifiées pour l'accompagnement au piano, d'après des grilles publiées en ligne (sources sous chaque chanson). Les versions varient d'un enregistrement à l'autre : vérifie à l'oreille avant le jour J.</p>
+</main>
+
+<script src="theory.js"></script>
+<script>
+const SONGS=[
+{id:'champs',t:"Les Champs-Élysées",a:"Joe Dassin",y:1969,key:'C',
+ secs:[['Intro','Dm G7 | C Am | Dm G7 | C'],['Couplet','C E7 | Am C7 | F C | D7 G7 | C E7 | Am C7 | F C | Dm G7 | C'],['Refrain','C E7 | Am C7 | F C | D7 G7 | C E7 | Am C7 | F C | Dm G7 | C']],
+ tip:"<b>E7 → Am</b> et <b>C7 → F</b> : deux dominantes secondaires. Chaque accord « 7 » pousse vers le suivant, c'est ce qui donne l'élan de la chanson. Le refrain reprend la grille du couplet.",
+ src:['e-chords','https://www.e-chords.com/chords/joe-dassin/les-champs-elysees']},
+{id:'vieenrose',t:"La Vie en rose",a:"Édith Piaf",y:1947,key:'C',
+ secs:[['Refrain ×2','C | C | Dm7 | G7 | Dm7 | G7 | C | C'],['Pont','C | C | F | Fm | C | A7 | Dm7 G7 | C']],
+ tip:"Tout repose sur <b>ii – V – I</b> (Dm7 – G7 – C). Le <b>Fm</b> du pont est emprunté à Do mineur : une seule note descend (La → La♭) et ça devient mélancolique. <b>A7</b> prépare Dm7.",
+ note:"Grille simplifiée : les versions publiées varient, vérifie à l'oreille.",
+ src:['Musiclic (Do majeur)','https://www.musiclic.com/analyses-chansons-edith-piaf.asp']},
+{id:'regrette',t:"Non, je ne regrette rien",a:"Édith Piaf",y:1960,key:'G',
+ secs:[['Refrain','G | D/F# | G | C | C6 | Am | D | D7 | G | D/F# | G | C | Am | D D7 | G'],['Couplet','G | D7 | G | G | D | G']],
+ tip:"<b>D/F♯</b> = un Ré avec Fa♯ à la basse : la main gauche fait Sol → Fa♯ → Sol, la basse « marche ». Tout le reste tient avec I, IV et V.",
+ src:['e-chords','https://www.e-chords.com/chords/edith-piaf/non-je-ne-regrette-rien']},
+{id:'hymne',t:"L'Hymne à l'amour",a:"Édith Piaf",y:1950,key:'G',
+ secs:[['Partie A','G | B7 | Em | Am Am7 | D7 | G | B7 | C | Cm6 | G Em | Am7 | D7 | G']],
+ tip:"<b>B7 → Em</b> : dominante secondaire vers le vi. <b>C → Cm6</b> : le IV devient mineur, même effet que le Fm de La Vie en rose. La partie centrale est plus jazzy, garde-la pour plus tard.",
+ src:['e-chords','https://www.e-chords.com/chords/edith-piaf/hymne-a-lamour']},
+{id:'milord',t:"Milord",a:"Édith Piaf",y:1959,key:'Dm',
+ secs:[['Intro','D G | D | E A'],['Couplet','Dm C | Dm C | Dm C | Dm C | Dm C | Bb | Gm | Bb | Dm C | Dm C | Bb | A'],['Refrain','D | G | D | E A | D | G | D | E A']],
+ tip:"Le couplet est en <b>Ré mineur</b>, le refrain en <b>Ré majeur</b> : même maison, lumière opposée. Le <b>A</b> à la fin du couplet sert de tremplin vers le refrain.",
+ src:['e-chords','https://www.e-chords.com/chords/edith-piaf/milord']},
+{id:'boheme',t:"La Bohème",a:"Charles Aznavour",y:1965,key:'Cm',
+ secs:[['Intro','Fm | Cm | Fm | G | Cm | C7'],['Couplet','Fm | Ab | Cm | Fm | G | Cm | Fm | Ab | Cm | Fm | G | Cm | C7'],['Refrain ×2','Fm | Cm | Fm | G | Cm | C7']],
+ tip:"Tonalité <b>Do mineur</b> : le V est <b>G majeur</b>, pas Gm (gamme mineure harmonique). <b>C7</b> relance vers Fm à chaque tour. Pour une grille plus facile, fais −3 : tu tombes en La mineur (Dm, F, Am, E, A7).",
+ src:['e-chords','https://www.e-chords.com/chords/charles-aznavour/la-boheme']},
+{id:'feuilles',t:"Les Feuilles mortes",a:"Yves Montand",y:1946,key:'Am',
+ secs:[['Intro (couplet parlé)','Am | E7 | Am | A7 | Dm7 | F7 | E7 | Am | F7 | E7'],['Refrain, 1re partie ×2','Dm7 | G7 | Cmaj7 | Fmaj7 | Bm7b5 | E7 | Am | Am'],['Refrain, fin','Bm7b5 | E7 | Am | Am | Dm7 | G7 | Cmaj7 | Fmaj7 | Bm7b5 | E7 | Am | Am']],
+ tip:"Le <b>cycle des quintes</b> complet : Ré → Sol → Do → Fa → Si → Mi → La. C'est la grille la plus jouée du jazz (« Autumn Leaves »). <b>Bm7♭5</b> = le ii de La mineur.",
+ src:['Guitar Songs Club','https://guitarsongs.club/song/98211']},
+{id:'mer',t:"La Mer",a:"Charles Trenet",y:1946,key:'C',
+ secs:[['Couplet','C Am | F G7 | C Am | F G7 | C E7 | Am G7 | C Am | F A7 | Dm | G E7 | Am | F D7 | G G7'],['Pont','B7 | E C#m | F#m | B7 | E | D7 | G Em | Am | D7 | G Em | Am D7 | G G7']],
+ tip:"Le couplet tourne en <b>C – Am – F – G7</b>. Le pont <b>module</b> : il part en Mi majeur, puis en Sol (D7 → G), et le <b>G7</b> final ramène en Do. Bon exercice pour sentir un changement de tonalité.",
+ src:['e-chords','https://www.e-chords.com/chords/charles-trenet/la-mer']},
+{id:'doucefrance',t:"Douce France",a:"Charles Trenet",y:1947,key:'G',
+ secs:[['Couplet','G | Em | Am | G | Bm Em | Am G | G Em | A7 D7'],['Refrain','G Em | Am D7 | G Em | Am D7 | G7 | C | C7 | D7 | G Em | Am D7 | G']],
+ tip:"<b>G – Em – Am – D7</b> = I – vi – ii – V, la boucle des années 40-50 par excellence. <b>G7 → C</b> : le I devient « 7 » pour filer vers le IV.",
+ src:['e-chords','https://www.e-chords.com/chords/charles-trenet/douce-france']},
+{id:'eteindien',t:"L'Été indien",a:"Joe Dassin",y:1975,key:'Dm',
+ secs:[['Couplet','Dm Gm | A7 | Dm Gm | A7 | Dm | A | D7 | Gm | Eb | Dm | Ddim7 A7'],['Refrain','Dm A7 | D7 Gm | Eb Dm | Ddim7 A7']],
+ tip:"<b>D7 → Gm</b> : le i devient majeur 7 pour pousser vers le iv. <b>E♭</b> (un demi-ton au-dessus de Ré) donne la couleur nostalgique. <b>Ddim7</b> sert de passage vers A7.",
+ src:['Tonton Rémy','https://tontonremy.com/ukulele/partoches/francais2/page358/page359/page359.html']},
+{id:'sud',t:"Le Sud",a:"Nino Ferrer",y:1975,key:'C',
+ secs:[['Intro','C | Em/B | Am | C/G | D7/F# | Fm | C'],['Couplet','C | Em/B | Am | C/G | D7/F# | F | C | C | Em/B | Am | C/G | D7/F# | F | Em'],['Refrain','F | C | F | C | F | C | Em/B | Am | D/F# | G | C | Em/B | Am | C/G | D7/F# | Fm | C']],
+ tip:"La basse descend <b>Do – Si – La – Sol – Fa♯</b>. Joue juste ces notes à la main gauche et des accords simples à droite : tout le charme est là. Le <b>Fm</b> final : encore un emprunt au mineur.",
+ src:['e-chords','https://www.e-chords.com/chords/nino-ferrer/le-sud']},
+{id:'habitude',t:"Comme d'habitude",a:"Claude François",y:1967,key:'C',
+ secs:[['Couplet','C | Cmaj7 | C7 | A7 | Dm | F | Dm7 | G7 | C | C7 | F | Fm | C | Dm | G7 | C'],['Refrain','C | Cmaj7 | F | Fmaj7 | Dm | G | Em | Am | Dm | G | Dm | C']],
+ tip:"<b>C → Cmaj7 → C7</b> : une seule note descend (Do → Si → Si♭), c'est la ligne qu'on entend. <b>F → Fm</b> : emprunt au mineur. La même grille a donné « My Way ».",
+ src:['Guitar Songs Club','https://en.guitarsongs.club/song/53267']},
+{id:'copains',t:"Les Copains d'abord",a:"Georges Brassens",y:1964,key:'D',
+ secs:[['Couplet','D | E7 | G | F#7 | Bm | E7 | A7 | D'],['Intro / transition','F | G7 | Bb | A7 | Dm | G7 | C7 | F']],
+ tip:"<b>E7</b> pousse vers A, <b>F♯7</b> vers Bm : des dominantes secondaires partout, typique de Brassens. Joue en « pompe » : basse à gauche, accord court à droite.",
+ src:['Guitar Songs Club','https://en.guitarsongs.club/song/10018']},
+{id:'quittepas',t:"Ne me quitte pas",a:"Jacques Brel",y:1959,key:'Am',
+ secs:[['Intro','Dm6 E7 | Dm6 E7'],['Couplet','Am Am7 | Dm E7 | Dm E7 | Am Am7 | Dm E7 | Am | Dm Am'],['Refrain','Dm | E7 | Am | Dm Am']],
+ tip:"En La mineur, le V est <b>E7</b> (majeur) : c'est la mineure harmonique. <b>Dm6</b> donne la tension de l'intro. Tempo très libre : suis le chanteur, pas un métronome.",
+ src:['e-chords','https://www.e-chords.com/chords/jacques-brel/ne-me-quitte-pas']},
+{id:'garcons',t:"Tous les garçons et les filles",a:"Françoise Hardy",y:1962,key:'A',
+ secs:[['Intro','A D | F#m | B | E7'],['Couplet','A F#m | Bm E | A F#m | Bm E | A F#m | D E | A F#m | Bm E | A'],['Refrain','D Dm | A | D E | D C#m Bm | D Dm | A | D Bm | E']],
+ tip:"<b>A – F♯m – Bm – E</b> = I – vi – ii – V, la boucle des années 60. <b>D → Dm</b> dans le refrain : le iv mineur emprunté, qui donne le spleen.",
+ src:['e-chords','https://www.e-chords.com/chords/francoise-hardy/tous-les-garcons-et-les-filles']},
+{id:'aline',t:"Aline",a:"Christophe",y:1965,key:'C',
+ secs:[['Toute la chanson','C | E7 | F | G7']],
+ tip:"Quatre accords pour toute la chanson. <b>E7</b> fait attendre un Am… et on tombe sur <b>F</b> : c'est cette surprise qui fait le côté nostalgique.",
+ src:['e-chords','https://www.e-chords.com/chords/christophe/aline']},
+{id:'lion',t:"Le Lion est mort ce soir",a:"Henri Salvador",y:1962,key:'G',
+ secs:[['Toute la chanson','G | C | G | D']],
+ tip:"<b>I – IV – I – V</b> en boucle : la grille la plus simple qui existe. Parfaite pour ouvrir la soirée et faire chanter la salle.",
+ src:['Guitar Songs Club','https://guitarsongs.club/song/76133']},
+{id:'salade',t:"Salade de fruits",a:"Bourvil",y:1959,key:'G',
+ secs:[['Couplet','G | Am | D | G | Am | D | G'],['Refrain','G Am | D | G | G | Am | D | G | G']],
+ tip:"Seulement <b>I, ii et V</b>. La grille publiée est jouée avec un capo en case 2, donc l'enregistrement sonne en La (+2).",
+ src:['Guitar Songs Club','https://guitarsongs.club/song/57421']},
+{id:'capri',t:"Capri c'est fini",a:"Hervé Vilard",y:1965,key:'D',
+ secs:[['Couplet','Em | A7 | D | Bm | Em | A7 | D | A7'],['Refrain','D | A7 | Em | A7 | Em | A7 | D']],
+ tip:"<b>Em – A7 – D</b> = ii – V – I, encore lui. Une fois que tu le sens, tu le reconnais dans la moitié du répertoire.",
+ src:['e-chords','https://www.e-chords.com/chords/herve-vilard/capri-cest-fini']},
+{id:'chasseur',t:"Le Chasseur",a:"Michel Delpech",y:1974,key:'Am',
+ secs:[['Couplet','Am | Dm7 | C Cmaj7 | C6 Dm G7 | C'],['Refrain','Dm7 | C | Dm7 | D7 | G Gmaj7 | C F D | G Gmaj7 | Cmaj7 F D']],
+ tip:"Couplet en <b>La mineur</b> (les accords de Do majeur). Au refrain, <b>D7</b> pousse vers <b>G</b> : la chanson « s'envole ». L'enregistrement sonne 3 demi-tons plus haut (+3).",
+ src:['Guitar Songs Club','https://guitarsongs.club/song/114230']},
+];
+
+const R=window.AR;
+let shift={}; try{shift=JSON.parse(localStorage.getItem('ar_shift')||'{}')}catch(e){}
+let open=new Set();
+const $=id=>document.getElementById(id);
+
+function keyLabel(k){const m=/m$/.test(k);return R.prettyText(k.replace(/m$/,''))+(m?' mineur':' majeur')}
+function render(){
+  const q=$('q').value.trim().toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu,'');
+  const list=SONGS.map((s,i)=>({s,i})).filter(({s})=>!q||(s.t+' '+s.a).toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu,'').includes(q));
+  $('count').textContent=list.length+(list.length>1?' chansons':' chanson');
+  $('songs').innerHTML=list.map(({s,i})=>{
+    const n=shift[s.id]||0, key=R.transposeKey(s.key,n), flats=R.keyPrefersFlats(key);
+    const tr=c=>R.transposeChord(c,n,flats);
+    const used=[...new Set(s.secs.flatMap(([,g])=>g.split(/[|\s]+/).filter(Boolean)))].map(tr);
+    const body=open.has(s.id)?`<div class="song-b">
+      <div class="transp"><span class="lbl">Tonalité</span><button class="btn small" data-sh="-1" data-id="${s.id}" aria-label="Descendre d'un demi-ton">−</button><span class="k">${keyLabel(key)}</span><button class="btn small" data-sh="1" data-id="${s.id}" aria-label="Monter d'un demi-ton">+</button>${n?`<span class="lbl">(${n>0?'+':''}${n} demi-ton${Math.abs(n)>1?'s':''})</span><button class="btn small" data-sh="0" data-id="${s.id}">Grille d'origine</button>`:''}</div>
+      <div class="sec"><h4>Accords utilisés</h4><div class="used">${used.map(c=>R.chip(c,flats)).join('')}</div></div>
+      ${s.secs.map(([name,g])=>`<div class="sec"><h4>${R.esc(name)}</h4><div class="bars">${g.split('|').map(b=>`<div class="bar">${b.trim().split(/\s+/).filter(Boolean).map(c=>R.chip(tr(c),flats)).join('')}</div>`).join('')}</div></div>`).join('')}
+      <p class="tip">${s.tip}</p>
+      ${s.note?`<p class="note">${s.note}</p>`:''}
+      <p class="src">Source : <a href="${s.src[1]}" target="_blank" rel="noopener">${s.src[0]}</a></p>
+    </div>`:'';
+    return `<article class="song${open.has(s.id)?' open':''}"><button class="song-h" data-open="${s.id}" aria-expanded="${open.has(s.id)}"><span class="song-n">${i+1}</span><span class="song-t"><b>${R.esc(s.t)}</b><span>${R.esc(s.a)} · ${s.y}</span></span><span class="keychip">${R.prettyText(key.replace(/m$/,''))}${/m$/.test(key)?'m':''}</span></button>${body}</article>`;
+  }).join('');
+}
+document.addEventListener('click',e=>{
+  const o=e.target.closest('[data-open]'); if(o){const id=o.dataset.open;open.has(id)?open.delete(id):open.add(id);render();return}
+  const b=e.target.closest('[data-sh]'); if(b){const id=b.dataset.id,d=+b.dataset.sh;shift[id]=d===0?0:(((shift[id]||0)+d+17)%12)-5;try{localStorage.setItem('ar_shift',JSON.stringify(shift))}catch(e){};render()}
+});
+$('q').addEventListener('input',render);
+function syncSeg(){$('nEn').setAttribute('aria-pressed',String(R.notation==='en'));$('nFr').setAttribute('aria-pressed',String(R.notation==='fr'))}
+document.querySelectorAll('.seg [data-n]').forEach(b=>b.addEventListener('click',()=>{R.setNotation(b.dataset.n)}));
+document.addEventListener('notation',()=>{syncSeg();render()});
+if(location.hash){open.add(location.hash.slice(1))}
+syncSeg();render();
+</script>
+</body>
+</html>

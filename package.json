@@ -1,0 +1,9 @@
+{
+  "name": "accords-et-refrains",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Entraînement aux accords, harmonie et répertoire pour karaoké au piano",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=18" }
+}

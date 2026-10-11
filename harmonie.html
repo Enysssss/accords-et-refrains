@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Harmonie · Accords &amp; Refrains</title>
+<meta name="description" content="Tout ce qu'il faut savoir après les 24 accords pour accompagner un karaoké au piano : tonalités, septièmes, sixtes, transposition, accompagnement.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Figtree:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="style.css">
+<style>
+.layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px;margin-top:28px}
+.toc{position:sticky;top:76px;align-self:start;font-size:14px}
+.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px;counter-reset:t}
+.toc a{display:flex;gap:8px;text-decoration:none;color:var(--muted);padding:5px 8px;border-radius:8px;font-weight:600;line-height:1.3}
+.toc a:hover{background:var(--surface);color:var(--ink)}
+.toc a span{font-family:var(--f-display);color:var(--felt);min-width:1.4em}
+@media (max-width:820px){.layout{grid-template-columns:1fr}.toc{position:static}.toc ol{flex-direction:row;flex-wrap:wrap;gap:6px}.toc a{background:var(--surface);border:1px solid var(--line);font-size:13px}}
+article{min-width:0}
+section.lesson{padding:30px 0;border-top:1px solid var(--line);scroll-margin-top:70px}
+section.lesson:first-child{border-top:0;padding-top:0}
+.lesson-num{font-family:var(--f-display);font-style:italic;color:var(--felt);font-size:20px}
+.lesson h2{font-family:var(--f-display);font-weight:700;font-size:clamp(26px,5vw,34px);line-height:1.1;margin:2px 0 12px;letter-spacing:-.01em}
+.lesson h3{font-size:17px;margin:22px 0 6px}
+.lesson p,.lesson li{max-width:66ch}
+.lesson ul,.lesson ol{padding-left:20px}
+.lesson li{margin:4px 0}
+.formula{font-family:var(--f-display);font-size:19px;font-weight:700;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 14px;display:inline-block;max-width:100%;overflow-x:auto}
+.ex{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:8px 0}
+.ex .arrow{color:var(--muted)}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;margin:16px 0}
+.box h4{margin:0 0 10px;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+select,textarea,input[type=text]{font:600 15px var(--f-ui);padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+textarea{width:100%;min-height:90px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:500;resize:vertical}
+.degrees{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin-top:12px}
+.deg{display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 2px;border-radius:10px;background:var(--surface-2)}
+.deg small{font-family:var(--f-display);font-weight:700;color:var(--felt);font-size:15px}
+.deg .ch{font-size:13px;padding:3px 5px}
+.deg em{font-style:normal;font-size:10px;color:var(--muted);text-align:center;line-height:1.2}
+@media (max-width:480px){.deg em{display:none}.deg .ch{font-size:12px;padding:2px 3px}}
+.tbl{overflow-x:auto;margin:12px 0}
+table{border-collapse:collapse;font-size:14px;min-width:100%}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.out{margin-top:10px;display:flex;flex-direction:column;gap:6px}
+.out .line{display:flex;gap:5px;flex-wrap:wrap;align-items:center;min-height:30px}
+.out .sep{color:var(--muted);font-weight:700}
+.callout{border-left:3px solid var(--felt);padding:4px 0 4px 14px;margin:14px 0}
+.kbd-mini{max-width:420px;margin-top:10px}
+.cx-name{font-weight:700;color:var(--felt)}
+.plan{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.plan div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.plan b{font-family:var(--f-display);font-size:18px;display:block;margin-bottom:4px}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-in">
+  <a class="brand" href="/">Accords <em>&amp;</em> Refrains</a>
+  <div class="tabs">
+    <a href="/"><span class="n">1</span>Entraînement</a>
+    <a href="/harmonie.html" aria-current="page"><span class="n">2</span>Harmonie</a>
+    <a href="/repertoire.html"><span class="n">3</span>Répertoire</a>
+  </div>
+</div></nav>
+
+<main class="wrap">
+  <div class="eyebrow">Section 2 · Après les 24 accords</div>
+  <h1 class="page-title">De l'accord à la chanson</h1>
+  <p class="lede">Tu connais tes 24 accords. Voici tout ce qu'il y a autour pour rejouer n'importe quelle chanson qu'on te demande au karaoké : les tonalités, les 7e, les 6tes, la transposition et l'accompagnement. Chaque accord est cliquable pour le voir et l'entendre.</p>
+
+  <div class="layout">
+    <aside class="toc" aria-label="Sommaire"><ol>
+      <li><a href="#tonalite"><span>1</span>Tonalité et 7 accords</a></li>
+      <li><a href="#grille"><span>2</span>Lire une grille</a></li>
+      <li><a href="#septieme"><span>3</span>La septième</a></li>
+      <li><a href="#sixte"><span>4</span>La sixte</a></li>
+      <li><a href="#couleurs"><span>5</span>dim, aug, sus, 9</a></li>
+      <li><a href="#secondaires"><span>6</span>Dominantes secondaires</a></li>
+      <li><a href="#emprunts"><span>7</span>Emprunts au mineur</a></li>
+      <li><a href="#renversements"><span>8</span>Renversements et basses</a></li>
+      <li><a href="#transposer"><span>9</span>Transposer</a></li>
+      <li><a href="#accompagner"><span>10</span>Accompagner</a></li>
+      <li><a href="#direct"><span>11</span>Une chanson en direct</a></li>
+      <li><a href="#plan"><span>12</span>Plan sur 4 semaines</a></li>
+    </ol></aside>
+
+    <article>
+      <!-- 1 -->
+      <section class="lesson" id="tonalite">
+        <div class="lesson-num">1</div>
+        <h2>Une tonalité, c'est 7 accords qui vont ensemble</h2>
+        <p>Une chanson tourne presque toujours autour d'une gamme de 7 notes. Sur chaque note, tu empiles une note sur deux, et tu obtiens les 7 accords « de la maison ». On les numérote en chiffres romains : majuscule pour majeur, minuscule pour mineur.</p>
+        <h3>Gamme majeure</h3>
+        <p><span class="formula">Ton · Ton · ½ · Ton · Ton · Ton · ½</span></p>
+        <p>Schéma des accords, identique dans toutes les tonalités :</p>
+        <p><span class="formula">I maj · ii min · iii min · IV maj · V maj · vi min · vii° dim</span></p>
+        <h3>Gamme mineure</h3>
+        <p>Naturelle : <span class="formula">Ton · ½ · Ton · Ton · ½ · Ton · Ton</span></p>
+        <p>Chaque majeure a une <b>jumelle mineure</b> qui démarre sur son vi (3 demi-tons plus bas) : Do majeur ↔ La mineur, Sol ↔ Mi, Fa ↔ Ré. Mêmes accords, autre « maison ».</p>
+        <p class="callout">En mineur, la vraie musique remonte presque toujours la 7e note (<b>gamme harmonique</b>) : le V devient <b>majeur</b>. En La mineur, tu joueras <b>E</b> ou <b>E7</b>, pas Em. C'est pour ça que Ne me quitte pas ou La Bohème ont un V majeur.</p>
+
+        <div class="box" id="keybox">
+          <h4>Les accords d'une tonalité</h4>
+          <div class="row">
+            <select id="kRoot" aria-label="Tonique"></select>
+            <div class="seg" role="group" aria-label="Mode"><button id="kMaj" aria-pressed="true">Majeur</button><button id="kMin" aria-pressed="false">Mineur</button></div>
+            <div class="seg" role="group" aria-label="Septièmes"><button id="k3" aria-pressed="true">Accords de 3 notes</button><button id="k7" aria-pressed="false">Avec 7e</button></div>
+          </div>
+          <div class="degrees" id="degrees"></div>
+          <p class="sheet-tip" id="keynote"></p>
+        </div>
+
+        <h3>Les 3 rôles à retenir</h3>
+        <ul>
+          <li><b>I</b>, la maison : le repos, on commence et on finit là.</li>
+          <li><b>IV</b>, on s'éloigne : une couleur plus ouverte, sans tension.</li>
+          <li><b>V</b> (souvent V7), la tension : il « appelle » le I. Quand tu entends que la chanson veut revenir à la maison, c'est le V.</li>
+        </ul>
+        <p>Avec seulement I, IV et V, tu accompagnes déjà Le Lion est mort ce soir, Salade de fruits ou une bonne partie des chansons à boire. Ajoute <b>vi</b> et <b>ii</b>, et tu couvres la grande majorité du répertoire des années 50 à 70.</p>
+      </section>
+
+      <!-- 2 -->
+      <section class="lesson" id="grille">
+        <div class="lesson-num">2</div>
+        <h2>Lire une grille d'accords</h2>
+        <p>Au karaoké, on ne lit pas de partition, on lit une <b>grille</b>. Chaque case entre deux barres est une <b>mesure</b> (souvent 4 temps, parfois 3 pour une valse).</p>
+        <div class="tbl"><table>
+          <tr><th>Tu vois</th><th>Ça veut dire</th></tr>
+          <tr><td><code>| C | Am |</code></td><td>Un accord par mesure.</td></tr>
+          <tr><td><code>| C Am |</code></td><td>Deux accords dans la mesure : 2 temps chacun.</td></tr>
+          <tr><td><code>| % |</code></td><td>Répète la mesure précédente.</td></tr>
+          <tr><td><code>×2</code>, <code>||: … :||</code></td><td>Reprise : joue le passage deux fois.</td></tr>
+          <tr><td><code>N.C.</code></td><td>« No chord » : on ne joue rien, le chanteur est seul.</td></tr>
+          <tr><td><code>D/F♯</code></td><td>Accord de Ré avec un Fa♯ à la basse (main gauche).</td></tr>
+          <tr><td><code>Do, Ré, Mi…</code></td><td>Même chose en notation française : Do = C, Ré = D, Mi = E, Fa = F, Sol = G, La = A, Si = B.</td></tr>
+        </table></div>
+        <p>Les grilles trouvées en ligne sont souvent écrites pour guitare avec un <b>capo</b>. « Capo 3 » veut dire que la musique sonne 3 demi-tons plus haut que les accords écrits : au piano, transpose de +3 si tu veux jouer avec le disque.</p>
+      </section>
+
+      <!-- 3 -->
+      <section class="lesson" id="septieme">
+        <div class="lesson-num">3</div>
+        <h2>La septième, l'ingrédient n°1</h2>
+        <p>Une 7e, c'est une 4e note ajoutée au-dessus de l'accord. Il en existe trois sortes, et elles n'ont pas du tout le même rôle.</p>
+        <div class="tbl"><table>
+          <tr><th>Symbole</th><th>Notes (sur Do)</th><th>Effet</th><th>Où tu la trouves</th></tr>
+          <tr><td>${C7}</td><td>Do Mi Sol <b>Si♭</b></td><td>Tension qui veut se résoudre</td><td>Sur le <b>V</b> : G7 en Do. Presque toujours.</td></tr>
+          <tr><td>${Cmaj7}</td><td>Do Mi Sol <b>Si</b></td><td>Doux, rêveur, « jazzy »</td><td>Sur le I et le IV : Cmaj7, Fmaj7.</td></tr>
+          <tr><td>${Cm7}</td><td>Do Mi♭ Sol <b>Si♭</b></td><td>Mineur adouci</td><td>Sur le ii et le vi : Dm7, Am7.</td></tr>
+        </table></div>
+        <h3>Comment s'en servir au karaoké</h3>
+        <ul>
+          <li><b>Le V devient V7 :</b> si la grille dit G avant de revenir sur C, joue G7. Ça sonne tout de suite plus « chanson ».</li>
+          <li><b>La 7e se trouve d'un demi-ton ou d'un ton sous l'octave :</b> pour C7, prends l'accord de Do et ajoute la note un ton sous le Do du haut (Si♭).</li>
+          <li><b>Trop de notes ?</b> Enlève la quinte. Pour G7, Sol–Si–Fa suffit, c'est même plus clair.</li>
+          <li><b>Enchaînement magique :</b> dans G7 → C, le Si monte au Do et le Fa descend au Mi. Ce sont ces deux petits mouvements qu'on entend comme une « résolution ».</li>
+        </ul>
+        <div class="ex">Écoute : ${G} <span class="arrow">→</span> ${C} puis ${G7} <span class="arrow">→</span> ${C}</div>
+      </section>
+
+      <!-- 4 -->
+      <section class="lesson" id="sixte">
+        <div class="lesson-num">4</div>
+        <h2>La sixte, le son des années 40-50</h2>
+        <p>${C6} = Do Mi Sol <b>La</b>. C'est la couleur de Trenet, de Piaf, du swing et du musette : plus chaleureux que maj7, moins tendu que 7. Dès qu'un I tient plusieurs mesures, alterne <b>C → C6</b> pour faire vivre l'accord.</p>
+        <p class="callout">Astuce : ${C6} et ${Am7} ont exactement les mêmes notes. Seule la basse change. Si tu sais Am7, tu sais C6.</p>
+        <p>Le <b>m6</b> (${Cm6} = Do Mi♭ Sol La) apparaît souvent sur un IV mineur emprunté, comme dans L'Hymne à l'amour (C → Cm6 → G).</p>
+      </section>
+
+      <!-- 5 -->
+      <section class="lesson" id="couleurs">
+        <div class="lesson-num">5</div>
+        <h2>Les autres couleurs à reconnaître</h2>
+        <div class="tbl"><table>
+          <tr><th>Symbole</th><th>Construction</th><th>À quoi ça sert</th></tr>
+          <tr><td>${Cdim} ou C°</td><td>3 tierces mineures : Do Mi♭ Sol♭</td><td>Accord de passage, très instable.</td></tr>
+          <tr><td>${Cdim7}</td><td>Do Mi♭ Sol♭ La</td><td>Relie deux accords qui se suivent : C → C♯dim7 → Dm.</td></tr>
+          <tr><td>${Cm7b5} ou Cø</td><td>Do Mi♭ Sol♭ Si♭</td><td>Le ii d'une tonalité mineure : Bm7♭5 → E7 → Am (Les Feuilles mortes).</td></tr>
+          <tr><td>${Caug} ou C+</td><td>Do Mi Sol♯</td><td>Fait monter la tension avant un IV : C → C+ → F.</td></tr>
+          <tr><td>${Csus4}</td><td>Do Fa Sol (pas de tierce)</td><td>Suspension qui se résout sur C : Csus4 → C.</td></tr>
+          <tr><td>${C9}</td><td>C7 + Ré</td><td>Version « riche » du 7. Si tu bloques, joue C7.</td></tr>
+        </table></div>
+        <div class="box">
+          <h4>Explorer un accord</h4>
+          <div class="row"><select id="cxRoot" aria-label="Fondamentale"></select><select id="cxQ" aria-label="Type d'accord"></select><button class="btn small primary" id="cxPlay">Écouter</button></div>
+          <p style="margin:10px 0 0"><span class="cx-name" id="cxName"></span> <span id="cxNotes"></span></p>
+          <div class="kbd kbd-mini" id="cxKbd"></div>
+        </div>
+        <p><b>Règle de survie :</b> si un symbole te bloque en plein karaoké, joue juste l'accord de base (C pour C9, Cmaj7 ou C6 ; Cm pour Cm7). Ça ne sonnera jamais faux, juste plus simple.</p>
+      </section>
+
+      <!-- 6 -->
+      <section class="lesson" id="secondaires">
+        <div class="lesson-num">6</div>
+        <h2>Les dominantes secondaires</h2>
+        <p>Tu as vu que <b>V7 → I</b> est l'enchaînement le plus fort. On peut le faire vers <i>n'importe quel</i> accord de la tonalité : on joue le « V7 » de cet accord juste avant lui. C'est ce qui explique les accords « 7 » qui semblent sortir de nulle part.</p>
+        <div class="tbl"><table>
+          <tr><th>Pour aller vers</th><th>Joue avant</th><th>Exemple</th></tr>
+          <tr><td>${Am} (vi)</td><td>${E7}</td><td>Les Champs-Élysées : C E7 Am</td></tr>
+          <tr><td>${Dm} (ii)</td><td>${A7}</td><td>La Vie en rose : C A7 Dm7</td></tr>
+          <tr><td>${F} (IV)</td><td>${C7}</td><td>Les Champs-Élysées : Am C7 F</td></tr>
+          <tr><td>${G} (V)</td><td>${D7}</td><td>Les Champs-Élysées : F C D7 G7</td></tr>
+          <tr><td>${Em} (iii)</td><td>${B7}</td><td>L'Hymne à l'amour (en Sol) : G B7 Em</td></tr>
+        </table></div>
+        <p>Pour trouver le V7 d'un accord : monte de 5 notes (une quinte) depuis sa fondamentale. Le V de Am est Mi, donc E7. Le V de Dm est La, donc A7.</p>
+      </section>
+
+      <!-- 7 -->
+      <section class="lesson" id="emprunts">
+        <div class="lesson-num">7</div>
+        <h2>Les emprunts au mineur</h2>
+        <p>En majeur, on « emprunte » parfois un accord à la tonalité mineure jumelle de même tonique. Le plus fréquent de loin : <b>le IV devient mineur</b>.</p>
+        <div class="ex">${C} <span class="arrow">→</span> ${F} <span class="arrow">→</span> ${Fm} <span class="arrow">→</span> ${C}</div>
+        <p>Une seule note bouge (La → La♭) et la chanson devient nostalgique. Tu l'as dans La Vie en rose, Comme d'habitude, Le Sud, Tous les garçons et les filles (D → Dm en La). Autres emprunts courants en Do : ${Bb} (le ♭VII) et ${Ab}.</p>
+      </section>
+
+      <!-- 8 -->
+      <section class="lesson" id="renversements">
+        <div class="lesson-num">8</div>
+        <h2>Renversements et lignes de basse</h2>
+        <p>Un accord peut se jouer dans trois ordres. Do majeur : <b>Do-Mi-Sol</b> (position fondamentale), <b>Mi-Sol-Do</b> (1er renversement), <b>Sol-Do-Mi</b> (2e renversement). Les trois s'appellent toujours C.</p>
+        <h3>La règle d'or : bouger le moins possible</h3>
+        <p>Pour passer d'un accord à l'autre, garde les notes communes et déplace les autres vers la note la plus proche. C → F → G7 → C peut se jouer avec la main droite quasiment immobile :</p>
+        <div class="tbl"><table>
+          <tr><th>Accord</th><th>Main droite (du grave à l'aigu)</th></tr>
+          <tr><td>C</td><td>Do Mi Sol</td></tr>
+          <tr><td>F</td><td>Do Fa La</td></tr>
+          <tr><td>G7</td><td>Si Fa Sol</td></tr>
+          <tr><td>C</td><td>Do Mi Sol</td></tr>
+        </table></div>
+        <h3>La main gauche fait la basse</h3>
+        <p>Main gauche : la fondamentale (ou la note après le « / »). Main droite : l'accord, renversé au plus près. Quand la basse descend note par note (Do – Si – La – Sol dans Le Sud), le public l'entend même s'il ne sait pas pourquoi : c'est la ligne qui fait « pro ».</p>
+      </section>
+
+      <!-- 9 -->
+      <section class="lesson" id="transposer">
+        <div class="lesson-num">9</div>
+        <h2>Transposer, pour s'adapter à la voix</h2>
+        <p>Au karaoké, la tonalité du disque est souvent trop haute pour la personne qui chante. Transposer, c'est décaler <b>tous</b> les accords du même nombre de demi-tons. La grille garde exactement la même forme.</p>
+        <h3>Deux méthodes</h3>
+        <ol>
+          <li><b>Les demi-tons :</b> tu comptes. C → D = +2, donc Am → Bm, F → G, G7 → A7.</li>
+          <li><b>Les degrés :</b> tu lis la chanson en chiffres. Les Champs-Élysées en Do, c'est I – III7 – vi – I7 – IV… En Sol, tu remplaces juste : G – B7 – Em – G7 – C… Avec l'habitude, c'est la méthode la plus rapide.</li>
+        </ol>
+        <p class="callout">Repère pratique : beaucoup de voix de seniors sont plus à l'aise 2 à 3 demi-tons plus bas que l'enregistrement d'origine. Demande au chanteur de fredonner le début : s'il force, descends.</p>
+        <p>Tonalités les plus confortables au piano pour toi : <b>Do, Sol, Fa, Ré</b> en majeur, <b>La, Mi, Ré</b> en mineur. Si une chanson tombe en Ré♭ ou en Fa♯, décale d'un demi-ton vers une de celles-là, le public ne verra pas la différence.</p>
+        <div class="box">
+          <h4>Transposeur</h4>
+          <label for="trIn" class="sheet-tip" style="display:block;margin:0 0 6px">Colle ou tape une grille (barres | et espaces) :</label>
+          <textarea id="trIn">C E7 | Am C7 | F C | D7 G7
+C E7 | Am C7 | F C | Dm G7 | C</textarea>
+          <div class="row" style="margin-top:10px">
+            <button class="btn small" id="trDown" aria-label="Moins un demi-ton">−</button>
+            <b id="trVal">+0</b>
+            <button class="btn small" id="trUp" aria-label="Plus un demi-ton">+</button>
+            <span class="sheet-tip" style="margin:0" id="trKey"></span>
+          </div>
+          <div class="out" id="trOut"></div>
+        </div>
+      </section>
+
+      <!-- 10 -->
+      <section class="lesson" id="accompagner">
+        <div class="lesson-num">10</div>
+        <h2>Accompagner un chanteur</h2>
+        <h3>Les 5 rythmes qui couvrent presque tout</h3>
+        <div class="tbl"><table>
+          <tr><th>Style</th><th>Main gauche</th><th>Main droite</th><th>Pour</th></tr>
+          <tr><td><b>Plaqué</b></td><td>Basse tenue</td><td>Accord tenu par mesure</td><td>Ballades lentes, Ne me quitte pas</td></tr>
+          <tr><td><b>Pompe</b> (4 temps)</td><td>Basse sur 1 et 3</td><td>Accord court sur 2 et 4</td><td>Brassens, Trenet, Les Champs-Élysées</td></tr>
+          <tr><td><b>Valse</b> (3 temps)</td><td>Basse sur 1</td><td>Accord sur 2 et 3</td><td>Musette, chansons de bal</td></tr>
+          <tr><td><b>Arpège</b></td><td>Basse sur 1</td><td>Notes de l'accord une par une</td><td>Slows des années 60-70, L'Été indien</td></tr>
+          <tr><td><b>Slow 12/8</b></td><td>Basse sur 1</td><td>Accord répété en triolets</td><td>Les slows doo-wop, Aline</td></tr>
+        </table></div>
+        <h3>Commencer et finir proprement</h3>
+        <ul>
+          <li><b>Intro :</b> joue les 2 à 4 dernières mesures du refrain. Le chanteur entend la tonalité et sait quand entrer.</li>
+          <li><b>Donner la note :</b> avant de commencer, joue la première note chantée, ou au moins l'accord du début.</li>
+          <li><b>Fin :</b> ralentis sur les deux dernières mesures, termine sur le I tenu. Pour un effet « music-hall » : IV – I, ou V7 – I avec un arpège.</li>
+          <li><b>Si tu te perds :</b> reste sur le I ou le V en rythme, et rattrape la grille au début du refrain. Le rythme compte plus que l'accord exact.</li>
+        </ul>
+      </section>
+
+      <!-- 11 -->
+      <section class="lesson" id="direct">
+        <div class="lesson-num">11</div>
+        <h2>Une chanson demandée en direct, sans grille</h2>
+        <ol>
+          <li><b>Trouve la maison :</b> fais chanter la fin du refrain. La dernière note, c'est presque toujours la tonique. Cherche-la au piano.</li>
+          <li><b>Majeur ou mineur ?</b> Joue l'accord majeur puis mineur sur cette note pendant que la personne chante : un des deux sonne évidemment juste.</li>
+          <li><b>Essaie les 4 suspects :</b> I, IV, V et vi. Quand ça frotte, change. 80 % des chansons de l'époque tiennent avec eux.</li>
+          <li><b>Écoute la basse dans ta tête :</b> si la mélodie a l'air de « monter vers quelque chose », c'est souvent le V qui arrive.</li>
+          <li><b>Ajoute ensuite</b> le ii et la dominante secondaire (III7 vers vi) quand tu les entends manquer.</li>
+        </ol>
+      </section>
+
+      <!-- 12 -->
+      <section class="lesson" id="plan">
+        <div class="lesson-num">12</div>
+        <h2>Plan d'entraînement sur 4 semaines</h2>
+        <div class="plan">
+          <div><b>Semaine 1</b>Les 24 accords en série (section 1). Les 7 accords de Do, Sol, Fa et Ré majeur. I – IV – V – I dans chacune.</div>
+          <div><b>Semaine 2</b>Ajoute V7 partout. Renversements : C – F – G7 – C main droite immobile, dans 4 tonalités. Joue Aline, Le Lion, Salade de fruits.</div>
+          <div><b>Semaine 3</b>ii – V – I et I – vi – ii – V dans 4 tonalités. Dominantes secondaires. Les Champs-Élysées, Douce France, Capri.</div>
+          <div><b>Semaine 4</b>Transposition à vue de 3 chansons (+2, −3). Les 5 rythmes. Une répétition « en vrai » : quelqu'un chante, tu suis.</div>
+        </div>
+      </section>
+    </article>
+  </div>
+</main>
+<footer class="foot">Accords &amp; Refrains · Entraînement aux accords pour l'animation karaoké au piano.</footer>
+
+<script src="theory.js"></script>
+<script>
+const R=window.AR;
+/* replace ${Sym} placeholders with chord chips */
+document.querySelectorAll('.lesson').forEach(sec=>{sec.innerHTML=sec.innerHTML.replace(/\$\{([A-G][#b]?[A-Za-z0-9#]*)\}/g,(m,s)=>R.chip(s.replace(/([A-G])b(?=[A-Za-z0-9]|$)/,'$1b'),/^[A-G]b/.test(s)))});
+
+/* key explorer */
+const ROOTS=[['C','Do'],['Db','Ré♭'],['D','Ré'],['Eb','Mi♭'],['E','Mi'],['F','Fa'],['F#','Fa♯'],['G','Sol'],['Ab','La♭'],['A','La'],['Bb','Si♭'],['B','Si']];
+const kRoot=document.getElementById('kRoot');
+kRoot.innerHTML=ROOTS.map(([e,f],i)=>`<option value="${i}">${f} (${e.replace('#','♯').replace('b','♭')})</option>`).join('');
+let kMinor=false,k7=false;
+const MAJ={steps:[0,2,4,5,7,9,11],q3:['','m','m','','','m','dim'],q7:['maj7','m7','m7','maj7','7','m7','m7b5'],num:['I','ii','iii','IV','V','vi','vii°'],role:['maison','prépare V','rare','s\'éloigne','tension','jumelle mineure','passage']};
+const MIN={steps:[0,2,3,5,7,8,10],q3:['m','dim','','m','','',''],q7:['m7','m7b5','maj7','m7','7','maj7','7'],num:['i','ii°','III','iv','V','VI','VII'],role:['maison','prépare V','majeur relatif','s\'éloigne','tension (harmonique)','couleur','passage']};
+function renderKey(){
+  const r=+kRoot.value, M=kMinor?MIN:MAJ;
+  const keyStr=AR.pcName(r,true)+(kMinor?'m':''); const flats=R.keyPrefersFlats(keyStr)||[1,3,8,10].includes(r);
+  document.getElementById('degrees').innerHTML=M.steps.map((s,i)=>{
+    let q=(k7?M.q7:M.q3)[i]; if(kMinor&&i===4&&!k7)q='';
+    const sym=R.pcName(r+s,flats)+q;
+    return `<div class="deg"><small>${M.num[i]}</small>${R.chip(sym,flats)}<em>${M.role[i]}</em></div>`}).join('');
+  document.getElementById('keynote').textContent=kMinor?'En mineur, le V est majeur (gamme harmonique) : c\'est lui qu\'on entend dans les chansons.':'Touche un accord pour l\'entendre. Essaie I – IV – V – I, puis I – vi – IV – V.';
+}
+const seg=(a,b,on)=>{a.setAttribute('aria-pressed',String(on));b.setAttribute('aria-pressed',String(!on))};
+document.getElementById('kMaj').onclick=()=>{kMinor=false;seg(kMaj,kMin,true);renderKey()};
+document.getElementById('kMin').onclick=()=>{kMinor=true;seg(kMaj,kMin,false);renderKey()};
+document.getElementById('k3').onclick=()=>{k7=false;seg(k3,k7b,true);renderKey()};
+const k7b=document.getElementById('k7'); k7b.onclick=()=>{k7=true;seg(k3,k7b,false);renderKey()};
+const kMaj=document.getElementById('kMaj'),kMin=document.getElementById('kMin'),k3=document.getElementById('k3');
+kRoot.onchange=renderKey;
+
+/* chord explorer */
+const cxRoot=document.getElementById('cxRoot'),cxQ=document.getElementById('cxQ');
+cxRoot.innerHTML=kRoot.innerHTML;
+const QL=[['','majeur'],['m','mineur'],['7','7'],['maj7','maj7'],['m7','m7'],['6','6'],['m6','m6'],['dim','dim'],['dim7','dim7'],['m7b5','m7♭5'],['aug','aug'],['sus4','sus4'],['sus2','sus2'],['9','9'],['add9','add9']];
+cxQ.innerHTML=QL.map(([v,l])=>`<option value="${v}">${l}</option>`).join('');
+function cxSym(){const r=+cxRoot.value;return R.pcName(r,[1,3,5,8,10].includes(r))+cxQ.value}
+function renderCx(){const s=cxSym(),v=R.voicing(s),fl=/^[A-G]b/.test(s);
+  document.getElementById('cxName').innerHTML=R.pretty(s);
+  document.getElementById('cxNotes').textContent=' : '+R.QUAL[v.p.q].iv.map(i=>R.noteNameFr(v.p.root+i,fl)).join(' · ');
+  document.getElementById('cxKbd').innerHTML=R.keyboardSVG(v.keys,null,k=>R.noteName(k,fl));}
+cxRoot.onchange=renderCx;cxQ.onchange=renderCx;document.getElementById('cxPlay').onclick=()=>R.playChord(cxSym());
+
+/* transposer */
+let trN=0;
+function guessKey(chords){const p=chords.map(R.parse).filter(Boolean);if(!p.length)return null;const last=p[p.length-1];return {pc:last.root,minor:last.q.startsWith('m')&&!last.q.startsWith('maj')}}
+function renderTr(){
+  const txt=document.getElementById('trIn').value;
+  const all=txt.split(/[\s|]+/).filter(Boolean);
+  const g=guessKey(all); let flats=false,keyTxt='';
+  if(g){const kk=R.pcName(g.pc+trN,false)+(g.minor?'m':'');const key=R.transposeKey(R.pcName(g.pc,false)+(g.minor?'m':''),trN);flats=R.keyPrefersFlats(key);keyTxt='Tonalité probable : '+R.prettyText(key.replace(/m$/,''))+(g.minor?' mineur':' majeur')+' (d\'après le dernier accord)';}
+  document.getElementById('trVal').textContent=(trN>0?'+':'')+trN;
+  document.getElementById('trKey').textContent=keyTxt;
+  document.getElementById('trOut').innerHTML=txt.split('\n').map(line=>`<div class="line">${line.split(/(\|)/).map(part=>part==='|'?'<span class="sep">|</span>':part.trim().split(/\s+/).filter(Boolean).map(c=>R.parse(c)?R.chip(R.transposeChord(c,trN,flats),flats):`<span>${R.esc(c)}</span>`).join(' ')).join(' ')}</div>`).join('');
+}
+document.getElementById('trUp').onclick=()=>{trN=Math.min(11,trN+1);renderTr()};
+document.getElementById('trDown').onclick=()=>{trN=Math.max(-11,trN-1);renderTr()};
+document.getElementById('trIn').addEventListener('input',renderTr);
+document.addEventListener('notation',()=>{renderKey();renderCx();renderTr()});
+renderKey();renderCx();renderTr();
+</script>
+</body>
+</html>
