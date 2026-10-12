@@ -35,7 +35,7 @@ button{font-family:inherit}
 .tabs a{text-decoration:none;color:var(--muted);font-weight:700;font-size:14px;padding:8px 12px;border-radius:999px;white-space:nowrap}
 .tabs a[aria-current="page"]{background:var(--ink);color:var(--bg)}
 .tabs a .n{font-family:var(--f-display);font-weight:500;opacity:.7;margin-right:5px}
-@media (max-width:560px){.tabs{margin-left:0;width:100%;justify-content:space-between}.tabs a{flex:1;text-align:center;padding:8px 6px}}
+@media (max-width:560px){.tabs{margin-left:0;width:100%;justify-content:space-between}.tabs a{flex:1;text-align:center;padding:8px 4px;font-size:13px}.tabs a .n{display:none}}
 
 .wrap{max-width:980px;margin:0 auto;padding-inline:16px;padding-block:22px 60px}
 .eyebrow{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--felt)}

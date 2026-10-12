@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Pool 45 · Accords &amp; Refrains</title>
+<meta name="description" content="Les 45 chansons à maîtriser pour la fête des Jeunes d'Hier, avec liens YouTube et suivi de progression.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Figtree:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="style.css">
+<style>
+.event{display:flex;flex-wrap:wrap;gap:8px 18px;margin:16px 0 0;font-size:14px;color:var(--muted)}
+.event b{color:var(--ink)}
+.dash{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:22px 0 8px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.stat .v{font-family:var(--f-display);font-weight:700;font-size:34px;line-height:1;font-variant-numeric:lining-nums tabular-nums}
+.stat .l{font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-top:4px}
+.stat.goal .v{color:var(--felt)}
+.bar{height:8px;background:var(--line);border-radius:4px;overflow:hidden;display:flex}
+.bar i{display:block;height:100%}
+.bar .m{background:var(--good)}.bar .c{background:#D9A23A}
+.legend{display:flex;gap:14px;font-size:12px;color:var(--muted);margin-top:6px;flex-wrap:wrap}
+.legend span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:5px;vertical-align:-1px;background:var(--line)}
+.legend .lm::before{background:var(--good)}.legend .lc::before{background:#D9A23A}
+.tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:20px 0 12px}
+.tools .seg button{font-size:13px;padding:8px 11px}
+.tools .grow{flex:1}
+.list{display:flex;flex-direction:column;gap:8px}
+.row{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:grid;grid-template-columns:2.2ch minmax(0,1fr) auto;gap:4px 12px;align-items:start}
+.row.st-2{border-color:color-mix(in oklab,var(--good) 55%,var(--line))}
+.num{font-family:var(--f-display);color:var(--muted);font-size:20px;text-align:right;line-height:1.3;font-variant-numeric:lining-nums tabular-nums}
+.t b{font-family:var(--f-display);font-weight:700;font-size:20px;line-height:1.2;display:block}
+.t .meta{font-size:13px;color:var(--muted)}
+.tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:999px;margin-left:6px;vertical-align:1px}
+.tag.salle{background:var(--felt-soft);color:var(--felt)}
+.tag.classique{background:color-mix(in oklab,var(--bass) 16%,transparent);color:var(--bass)}
+.tag.emotion{background:color-mix(in oklab,#9B6BC8 18%,transparent);color:#8A5BB8}
+.links{grid-column:2/4;display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.links a{font-size:13px;font-weight:700;text-decoration:none;padding:6px 10px;border-radius:9px;border:1px solid var(--line);color:var(--ink);background:var(--surface-2)}
+.links a:hover{border-color:var(--felt);color:var(--felt)}
+.links a.ch-link{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.status{border:1px solid var(--line);background:var(--surface);color:var(--muted);font:700 12px var(--f-ui);padding:6px 10px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.status.s1{background:#D9A23A;border-color:#D9A23A;color:#1b1406}
+.status.s2{background:var(--good);border-color:var(--good);color:var(--good-ink)}
+.empty{color:var(--muted);padding:20px 0}
+.note{font-size:13px;color:var(--muted);margin-top:18px;max-width:70ch}
+@media (max-width:480px){.dash{grid-template-columns:repeat(3,1fr)}.stat .v{font-size:28px}.row{grid-template-columns:2ch minmax(0,1fr)}.row .status{grid-column:2;justify-self:start;margin-top:4px}.links{grid-column:1/3}}
+/* printable menu for participants */
+#printMenu{display:none}
+@media print{
+  body{background:#fff;color:#000}
+  .nav,.wrap,.foot{display:none!important}
+  #printMenu{display:block;font-family:var(--f-ui);padding:0 10mm}
+  #printMenu h1{font-family:var(--f-display);font-size:30pt;margin:0 0 2mm;text-align:center}
+  #printMenu p{text-align:center;margin:0 0 8mm;font-size:11pt}
+  #printMenu ol{columns:2;column-gap:12mm;font-size:12.5pt;line-height:1.55;padding-left:8mm}
+  #printMenu li{break-inside:avoid}
+  #printMenu li span{color:#555;font-size:10.5pt}
+}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-in">
+  <a class="brand" href="/">Accords <em>&amp;</em> Refrains</a>
+  <div class="tabs">
+    <a href="/"><span class="n">1</span>Entraînement</a>
+    <a href="/harmonie.html"><span class="n">2</span>Harmonie</a>
+    <a href="/repertoire.html"><span class="n">3</span>Répertoire</a>
+    <a href="/pool.html" aria-current="page"><span class="n">4</span>Pool 45</a>
+  </div>
+</div></nav>
+
+<main class="wrap">
+  <div class="eyebrow" id="countdown">Fête des Jeunes d'Hier</div>
+  <h1 class="page-title">Les 45 chansons à maîtriser</h1>
+  <p class="lede">Le catalogue du karaoké. Pour chaque titre : l'original pour avoir la chanson dans l'oreille, un tuto piano pour l'apprendre, et une version karaoké pour t'entraîner à accompagner. Touche le statut pour suivre ta progression.</p>
+  <div class="event"><span><b>Sam. 12 décembre</b>, 16h – 18h30</span><span>Salle des fêtes de <b>Saint-Laurent-d'Agny</b></span><span>Environ <b>80 personnes</b></span></div>
+
+  <div class="dash">
+    <div class="stat"><div class="v" id="sM">0</div><div class="l">Maîtrisées</div></div>
+    <div class="stat"><div class="v" id="sC">0</div><div class="l">En cours</div></div>
+    <div class="stat goal"><div class="v">30</div><div class="l">Objectif solides</div></div>
+  </div>
+  <div class="bar" aria-hidden="true"><i class="m" id="bM"></i><i class="c" id="bC"></i></div>
+  <div class="legend"><span class="lm">Maîtrisée</span><span class="lc">En cours</span><span>À travailler</span></div>
+
+  <div class="tools">
+    <div class="seg" role="group" aria-label="Catégorie">
+      <button data-f="all" aria-pressed="true">Toutes</button><button data-f="salle" aria-pressed="false">Toute la salle</button><button data-f="classique" aria-pressed="false">Classiques</button><button data-f="emotion" aria-pressed="false">Émotion</button>
+    </div>
+    <div class="seg" role="group" aria-label="Statut">
+      <button data-s="all" aria-pressed="true">Tout</button><button data-s="todo" aria-pressed="false">À bosser</button>
+    </div>
+    <span class="grow"></span>
+    <button class="btn small" id="print">Imprimer le menu</button>
+  </div>
+
+  <div class="list" id="list"></div>
+  <p class="note">Les liens ouvrent une recherche YouTube ciblée, pour ne jamais tomber sur une vidéo supprimée. Pour l'apprentissage en notes qui tombent, prends une vidéo « piano cover » ou « tutorial » plutôt que le clip officiel. « Accords » renvoie à la grille du Répertoire quand elle existe. Ta progression est enregistrée sur cet appareil.</p>
+</main>
+
+<div id="printMenu">
+  <h1>Karaoké piano</h1>
+  <p>Fête des Jeunes d'Hier · Choisissez votre chanson !</p>
+  <ol id="printList"></ol>
+</div>
+
+<script>
+const S=[
+// [titre, artiste, année, catégorie, id répertoire]
+["Les Champs-Élysées","Joe Dassin",1969,"salle","champs"],
+["Le Lion est mort ce soir","Henri Salvador",1962,"salle","lion"],
+["Salade de fruits","Bourvil",1959,"salle","salade"],
+["Douce France","Charles Trenet",1947,"salle","doucefrance"],
+["Aline","Christophe",1965,"salle","aline"],
+["Les Copains d'abord","Georges Brassens",1964,"salle","copains"],
+["Le Chasseur","Michel Delpech",1974,"salle","chasseur"],
+["Siffler sur la colline","Joe Dassin",1968,"salle"],
+["Bambino","Dalida",1956,"salle"],
+["Belles ! Belles ! Belles !","Claude François",1962,"salle"],
+["Le Lundi au soleil","Claude François",1972,"salle"],
+["La Ballade des gens heureux","Gérard Lenorman",1975,"salle"],
+["Mexico","Luis Mariano",1951,"salle"],
+["Pour un flirt","Michel Delpech",1971,"salle"],
+["La Maladie d'amour","Michel Sardou",1973,"salle"],
+["Les Lacs du Connemara","Michel Sardou",1981,"salle"],
+["La Vie en rose","Édith Piaf",1947,"classique","vieenrose"],
+["Non, je ne regrette rien","Édith Piaf",1960,"classique","regrette"],
+["Milord","Édith Piaf",1959,"classique","milord"],
+["La Mer","Charles Trenet",1946,"classique","mer"],
+["L'Été indien","Joe Dassin",1975,"classique","eteindien"],
+["Tous les garçons et les filles","Françoise Hardy",1962,"classique","garcons"],
+["Capri c'est fini","Hervé Vilard",1965,"classique","capri"],
+["Salut les amoureux","Joe Dassin",1972,"classique"],
+["Emmenez-moi","Charles Aznavour",1967,"classique"],
+["Paroles, paroles","Dalida et Alain Delon",1973,"classique"],
+["Retiens la nuit","Johnny Hallyday",1961,"classique"],
+["Nathalie","Gilbert Bécaud",1964,"classique"],
+["L'important c'est la rose","Gilbert Bécaud",1967,"classique"],
+["Laisse-moi t'aimer","Mike Brant",1970,"classique"],
+["À bicyclette","Yves Montand",1968,"classique"],
+["Il est cinq heures, Paris s'éveille","Jacques Dutronc",1968,"classique"],
+["L'Hymne à l'amour","Édith Piaf",1950,"emotion","hymne"],
+["La Bohème","Charles Aznavour",1965,"emotion","boheme"],
+["Les Feuilles mortes","Yves Montand",1946,"emotion","feuilles"],
+["Le Sud","Nino Ferrer",1975,"emotion","sud"],
+["Comme d'habitude","Claude François",1967,"emotion","habitude"],
+["Ne me quitte pas","Jacques Brel",1959,"emotion","quittepas"],
+["Et si tu n'existais pas","Joe Dassin",1975,"emotion"],
+["Hier encore","Charles Aznavour",1964,"emotion"],
+["Il venait d'avoir 18 ans","Dalida",1973,"emotion"],
+["Le Téléphone pleure","Claude François",1974,"emotion"],
+["Que je t'aime","Johnny Hallyday",1969,"emotion"],
+["Le Petit Bal perdu","Bourvil",1961,"emotion"],
+["Le Plat Pays","Jacques Brel",1962,"emotion"],
+];
+const CAT={salle:'Toute la salle',classique:'Classique',emotion:'Émotion'};
+const LBL=['À travailler','En cours','Maîtrisée'];
+let st={}; try{st=JSON.parse(localStorage.getItem('pool_status')||'{}')}catch(e){}
+let fCat='all',fSt='all';
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const yt=q=>'https://www.youtube.com/results?search_query='+encodeURIComponent(q);
+const key=s=>s[0];
+
+function render(){
+  const rows=S.map((s,i)=>({s,i})).filter(({s})=>(fCat==='all'||s[3]===fCat)&&(fSt==='all'||(st[key(s)]||0)<2));
+  $('list').innerHTML=rows.length?rows.map(({s,i})=>{const v=st[key(s)]||0;return `<article class="row st-${v}">
+    <span class="num">${i+1}</span>
+    <div class="t"><b>${esc(s[0])}</b><span class="meta">${esc(s[1])} · ${s[2]}<span class="tag ${s[3]}">${CAT[s[3]]}</span></span></div>
+    <button class="status s${v}" data-k="${esc(key(s))}" aria-label="Statut : ${LBL[v]}, toucher pour changer">${LBL[v]}</button>
+    <div class="links">
+      <a href="${yt(s[1]+' '+s[0])}" target="_blank" rel="noopener">Original</a>
+      <a href="${yt(s[0]+' '+s[1]+' piano tutorial')}" target="_blank" rel="noopener">Tuto piano</a>
+      <a href="${yt(s[0]+' '+s[1]+' karaoké')}" target="_blank" rel="noopener">Karaoké</a>
+      ${s[4]?`<a class="ch-link" href="/repertoire.html#${s[4]}">Accords</a>`:''}
+    </div></article>`}).join(''):'<p class="empty">Tout est maîtrisé dans cette catégorie. Bravo.</p>';
+  const m=S.filter(s=>(st[key(s)]||0)===2).length, c=S.filter(s=>(st[key(s)]||0)===1).length;
+  $('sM').textContent=m; $('sC').textContent=c;
+  $('bM').style.width=(m/S.length*100)+'%'; $('bC').style.width=(c/S.length*100)+'%';
+}
+document.addEventListener('click',e=>{
+  const b=e.target.closest('.status'); if(b){const k=b.dataset.k;st[k]=((st[k]||0)+1)%3;try{localStorage.setItem('pool_status',JSON.stringify(st))}catch(_){};render();return}
+  const f=e.target.closest('[data-f]'); if(f){fCat=f.dataset.f;document.querySelectorAll('[data-f]').forEach(x=>x.setAttribute('aria-pressed',String(x===f)));render();return}
+  const s=e.target.closest('[data-s]'); if(s){fSt=s.dataset.s;document.querySelectorAll('[data-s]').forEach(x=>x.setAttribute('aria-pressed',String(x===s)));render()}
+});
+$('print').addEventListener('click',()=>{
+  const sorted=[...S].sort((a,b)=>a[0].localeCompare(b[0],'fr'));
+  $('printList').innerHTML=sorted.map(s=>`<li>${esc(s[0])} <span>· ${esc(s[1])}</span></li>`).join('');
+  window.print();
+});
+(function(){const d=new Date(2026,11,12,16),now=new Date();const days=Math.ceil((d-now)/864e5);
+  $('countdown').textContent=days>0?`Fête des Jeunes d'Hier · J−${days}`:days===0?"Fête des Jeunes d'Hier · C'est aujourd'hui":"Fête des Jeunes d'Hier";})();
+render();
+</script>
+</body>
+</html>
